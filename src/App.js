@@ -9,16 +9,17 @@ function App() {
     {content:"todo2", id:2},
     {content:"todo3", id:3},
     ])
-    const test=state.map((states)=>console.log(state.content));
+
+    const test1=state.map((todos)=>{console.log(todos.content); });
     const onFinish= e =>{ console.log(e);}
       
     
   return (
   <div>
-   <Form name="content" >
+   <Form name="content" onFinish={onFinish}>
      <Row>
        <Col>
-        <Form.Item name="content" onFinish={onFinish} >
+        <Form.Item >
           <Input type="text" />
         </Form.Item> 
          <Button htmlType="submit">
@@ -28,9 +29,9 @@ function App() {
      </Row>
     </Form>
     <Row>
-       <Col>
-         
-       </Col>
+       <p >
+        
+       </p>
      </Row>
     
 
