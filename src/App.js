@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import 'antd/dist/antd.css';
-import { Button, Row, Col, Form, Input } from 'antd';
+import { Button, Row, Col, Form, Input,Card } from 'antd';
 
 
 function App() {
@@ -10,34 +10,46 @@ function App() {
     {content:"todo3", id:3},
     ])
 
-    const onFinish= (e) =>{ 
-      return(
-        e.todo
-      )
-    }
+
       
     
   return (
   <div>
-   <Form  onFinish={(e)=>setstate([...state, {content: e.todo, id:state.length}])} name="creat">
-     <Row>
-       <Col>
+    <Card>
+   <Form  onFinish={(e)=>setstate([...state, {content: e.todo, id:Math.random()}])} name="creat">
+     <Row >
+       <Col span={24}>
+       <Col span={12}>
         <Form.Item name="todo">
           <Input type="text" />
-        </Form.Item> 
-         <Button htmlType="submit"  >
+        </Form.Item>   
+        </Col>
+        <Col span={3}>
+         <Button htmlType="submit">
             CREAT
           </Button>
-       </Col>
+         </Col> 
+        </Col>
      </Row>
     </Form>
+    </Card>
     <Row>
+      <Col span={24}>
        {state.map((item)=>(
-         <p>
-           {item.content}
-         </p>
+         <Card>
+           <Row justify={"space-around"}>
+              
+                
+                 <Col span={12} ><Card>{item.content}</Card></Col> 
+                 <Col>
+                 <Button onClick={()=>setstate(state.filter((items)=>items.id!==item.id))}>delete</Button>
+                 </Col>
+                 
+              
+           </Row>
+         </Card>
        ))}
-      
+      </Col>
      </Row>
     
 
