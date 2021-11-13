@@ -10,28 +10,34 @@ function App() {
     {content:"todo3", id:3},
     ])
 
-    const test1=state.map((todos)=>{console.log(todos.content); });
-    const onFinish= e =>{ console.log(e);}
+    const onFinish= (e) =>{ 
+      return(
+        e.todo
+      )
+    }
       
     
   return (
   <div>
-   <Form name="content" onFinish={onFinish}>
+   <Form  onFinish={(e)=>setstate([...state, {content: e.todo, id:state.length}])} name="creat">
      <Row>
        <Col>
-        <Form.Item >
+        <Form.Item name="todo">
           <Input type="text" />
         </Form.Item> 
-         <Button htmlType="submit">
+         <Button htmlType="submit"  >
             CREAT
           </Button>
        </Col>
      </Row>
     </Form>
     <Row>
-       <p >
-        
-       </p>
+       {state.map((item)=>(
+         <p>
+           {item.content}
+         </p>
+       ))}
+      
      </Row>
     
 
