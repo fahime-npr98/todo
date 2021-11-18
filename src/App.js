@@ -6,7 +6,11 @@ import List from "./List"
 
 
 function App() {
-    const [state, setstate] = useState([])
+  const [state, setstate] = useState([
+    {content:"todo1", id:1},
+    {content:"todo2", id:2},
+    {content:"todo3", id:3},
+    ])
     
   return (
   <div>

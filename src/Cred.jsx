@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import 'antd/dist/antd.css';
 import { Button, Row, Col, Form, Input,Card } from 'antd';
 
-const Cred = () => {
-  const [state, setstate] = useState({content:"", id:"" })
+const Cred = (props) => {
+  const {state, setstate} = props
 
     return (
     <div>

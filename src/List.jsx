@@ -3,13 +3,8 @@ import 'antd/dist/antd.css';
 import { Button, Row, Col, Form, Input,Card } from 'antd';
 
 
-const List = () => {
-    
-    const [state, setstate] = useState([
-        {content:"todo1", id:1},
-        {content:"todo2", id:2},
-        {content:"todo3", id:3},
-        ])
+const List = (props) => {
+  const {state, setstate} = props
     
     return (
         <div>
